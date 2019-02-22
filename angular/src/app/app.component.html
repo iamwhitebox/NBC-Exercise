@@ -1,0 +1,46 @@
+<section class="search-wrapper" fxFlex fxLayoutAlign="center center">
+  <section fxFlex fxLayout="column" fxFlex.lt-sm="1 1 auto" fxFlex.gt-sm="960px">
+    <section fxFlex="150px" fxLayoutAlign="center center">
+      <img src="assets/star-wars-logo.png" width="300">
+    </section>
+    <mat-card class="mat-elevation-z0 transparent">
+      <mat-card-header fxLayoutAlign="center center">
+        <h1>{{title}}</h1>
+      </mat-card-header>
+    </mat-card>
+    <mat-card class="search-results-container nopadding transparent mat-elevation-z0" fxLayoutAlign="center center">
+      <mat-card-content class="form-full-width">
+        <mat-card class="mat-elevation-z0 nopadding transparent">
+          <mat-card-content class="form-full-width nopadding">
+            <mat-form-field class="search-input-field form-full-width nopadding" floatLabel="never">
+              <span class="search-icon" matPrefix>
+                <mat-icon class="material-icons md-36">search</mat-icon>
+              </span>
+              <input matInput class="search-input form-full-width" [formControl]="searchInput"
+                placeholder="Search the Star Wars universe...">
+              <mat-spinner *ngIf="searching" class="search-loading-indicator" color="primary" diameter="36"
+                strokeWidth="3"></mat-spinner>
+            </mat-form-field>
+          </mat-card-content>
+        </mat-card>
+      </mat-card-content>
+    </mat-card>
+    <section class="search-results">
+      <ng-container *ngIf="filteredPeople$ | async as filteredPeople">
+        <ng-container *ngIf="filteredPeople.length; else noResults">
+          <mat-card class="person-card spacer" *ngFor="let person of filteredPeople">
+            <mat-card-header>
+              <mat-card-title>{{person.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <!-- TODO -->
+            </mat-card-content>
+          </mat-card>
+        </ng-container>
+        <ng-template #noResults>
+          Nothing found!
+        </ng-template>
+      </ng-container>
+    </section>
+  </section>
+</section>
