@@ -45,4 +45,5 @@ export class AppComponent implements OnInit {
         tap(() => this.searching = false),
       );
   }
+
 }

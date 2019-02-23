@@ -28,14 +28,20 @@
     <section class="search-results">
       <ng-container *ngIf="filteredPeople$ | async as filteredPeople">
         <ng-container *ngIf="filteredPeople.length; else noResults">
-          <mat-card class="person-card spacer" *ngFor="let person of filteredPeople">
-            <mat-card-header>
-              <mat-card-title>{{person.name}}</mat-card-title>
-            </mat-card-header>
-            <mat-card-content>
-              <!-- TODO -->
-            </mat-card-content>
-          </mat-card>
+          <mat-expansion-panel class="person-card spacer" *ngFor="let person of filteredPeople">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                {{person.name}}
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list>
+              <mat-list-item><strong>Gender: &nbsp;</strong>{{person.gender}}</mat-list-item>
+              <mat-list-item><strong>Hair Color: &nbsp;</strong>{{person.hair_color}}</mat-list-item>
+              <mat-list-item><strong>Height: &nbsp;</strong>{{person.height}}</mat-list-item>
+              <mat-list-item><strong>Mass: &nbsp;</strong>{{person.mass}}</mat-list-item>
+              <mat-list-item><strong>Skin Color: &nbsp;</strong>{{person.skin_color}}</mat-list-item>
+            </mat-list>
+          </mat-expansion-panel>
         </ng-container>
         <ng-template #noResults>
           Nothing found!
