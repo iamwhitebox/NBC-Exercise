@@ -15,7 +15,7 @@ import {
   tap
 } from 'rxjs/operators';
 
-import { Observable } from 'rxjs';
+import { forkJoin, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +44,11 @@ export class AppComponent implements OnInit {
         switchMap(value => this.swService.getPeople({ name: value })),
         tap(() => this.searching = false),
       );
+  }
+
+  showFilms(person: any) {
+    const films = this.swService.getFilms(person);
+    films.subscribe(films => person.films = films);
   }
 
 }

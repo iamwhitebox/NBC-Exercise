@@ -12,7 +12,9 @@ import {
   MatInputModule,
   MatProgressSpinnerModule,
   MatExpansionModule,
-  MatListModule
+  MatListModule,
+  MatMenuModule,
+  MatButtonModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -29,11 +31,13 @@ import { StarWarsService } from './starwars.service';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
+    MatButtonModule,
     MatCardModule,
     MatExpansionModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
+    MatMenuModule,
     MatProgressSpinnerModule
   ],
   providers: [

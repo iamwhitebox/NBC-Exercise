@@ -35,6 +35,12 @@
               </mat-panel-title>
             </mat-expansion-panel-header>
             <mat-list>
+              <mat-list-item>
+                <button mat-button [matMenuTriggerFor]="menu" (click)="showFilms(person)">Show Films</button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item *ngFor="let film of person.films">{{film.title}}</button>
+                </mat-menu>
+              </mat-list-item>
               <mat-list-item><strong>Gender: &nbsp;</strong>{{person.gender}}</mat-list-item>
               <mat-list-item><strong>Hair Color: &nbsp;</strong>{{person.hair_color}}</mat-list-item>
               <mat-list-item><strong>Height: &nbsp;</strong>{{person.height}}</mat-list-item>
